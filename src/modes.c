@@ -39,13 +39,14 @@ void mode1(void){
 
 	if( gFlagBlink ){
 
-		if( gLedR == 0x00 && gLedG == 0x00 && gLedB == 0x00 ) gLedR = 0xff;				// init
+		if( gLedR == 0x00 && gLedG == 0x00 && gLedB == 0x00 ) setLedColor(0xff, 0x00, 0x00); // init
 		else if( gLedR == 0xff && gLedG < 0xff && gLedB == 0x00 ) gLedG += FADE_INC;	// green raise
 		else if(  gLedR > 0x00 && gLedG == 0xff && gLedB == 0x00 ) gLedR -= FADE_INC;	// red fall
 		else if(  gLedR == 0x00 && gLedG == 0xff && gLedB < 0xff ) gLedB += FADE_INC;	// blue raise
 		else if(  gLedR == 0x00 && gLedG > 0x00 && gLedB == 0xff ) gLedG -= FADE_INC;	// green fall
 		else if(  gLedR < 0xff && gLedG == 0x00 && gLedB == 0xff ) gLedR += FADE_INC;	// red raise
 		else if(  gLedR == 0xff && gLedG == 0x00 && gLedB > 0x00 ) gLedB -= FADE_INC;	// blue fall
+		else setLedColor(0xff, 0x00, 0x00);
 
 	}
 
